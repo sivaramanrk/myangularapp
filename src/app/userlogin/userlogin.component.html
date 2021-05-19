@@ -1,0 +1,65 @@
+
+
+<div class="container">
+
+  <h2>User Login</h2>
+  <form  [formGroup]="loginForm"  (ngSubmit)="loginUser()">
+
+    <div class="form-group">
+
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="firstname">First Name:</label>
+            </div>
+            <div class="col-sm-5">
+                <input type="text" [ngClass]="{'is-invalid': loginForm.get('firstName').touched && loginForm.get('firstName').invalid}" formControlName="firstName" class="form-control" id="email" placeholder="Enter first name" name="firstname">
+                <div class="invalid-feedback">
+                   <div *ngIf="loginForm.get('firstName').errors.required">Enter correct First Name</div>
+                   
+                </div>
+                <div  class="invalid-feedback">
+                    Not Matching First Name            
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+    <div class="form-group">
+
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="password">Password:</label>
+            </div>
+            <div class="col-sm-5">
+                <input type="password" formControlName="password" class="form-control" id="password" placeholder="Enter Password" name="password">
+                
+            </div>
+        </div>
+        
+    </div>
+
+    
+
+    <div class="form-group">
+
+        <div class="row">
+    
+            <div class="col-sm-7">
+                <!-- <button type="submit" class="btn btn-success">Register</button> -->
+                <a routerLink="/register" routerLinkActive="active">Register</a>
+            </div>
+
+            <div class="col-sm-3">
+                <button type="submit"  class="btn btn-success">Login</button>
+            </div>           
+            
+        </div>
+        
+    </div>
+ 
+</form>
+</div>
+
+

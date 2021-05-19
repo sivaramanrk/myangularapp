@@ -1,0 +1,58 @@
+<div class="container-fluid">
+  <br>
+  <br>
+
+    <div class="row">
+        <div class="col-sm-3">
+        <label for="search">Search:</label>
+        </div>
+
+        
+            <div class="col-sm-3">
+                <input type="text" class="form-control" [(ngModel)]="firstName" placeholder="Enter the Search Name">
+            
+        </div>
+    </div>
+
+    <div class="tables">
+        <h3 class="head">List of Users</h3>
+        <table class="table table-bordered">
+            <thead>
+                <!-- <th>Id</th>  -->
+                <tr>
+               
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>email</th>
+                <th>Address Line One</th>
+                <th>Address Line Two</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of userList | searchFilter: firstName">
+                   
+                    <td>{{user.firstName}}</td>
+                    <td>{{user.lastName}}</td> 
+                    <td>{{user.email}}</td> 
+                    <td>{{user.address.addressLineOne}}</td> 
+                    <td>{{user.address.addressLineTwo}}</td>  
+                    <td>{{user.address.city}}</td>     
+                    <td>{{user.address.state}}</td>     
+                    <td>{{user.address.zip}}</td>     
+                    <!-- <td><a [routerLink]="['/editmovie/', movieDto.id]" class="btn btn-primary">Edit</a></td> -->
+                    <!-- <td> <button type="button" class="btn btn-danger"   (click)="deleteMovie(movieDto.id)">Delete</button>
+                    </td> -->
+                    
+                    
+        
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+
+</div>
+

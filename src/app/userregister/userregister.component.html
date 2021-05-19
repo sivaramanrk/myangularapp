@@ -1,0 +1,203 @@
+
+
+<div class="container">
+
+  <h2>User Registration</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+
+
+    <div class="form-group">
+
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="username">Username:</label>
+            </div>
+            <div class="col-sm-5">
+                <input type="text" [ngClass]="{'is-invalid': registerForm.get('username').touched && registerForm.get('username').invalid}"  formControlName="username" class="form-control" id="username" placeholder="Enter username" name="username">
+                <div class="invalid-feedback">
+                    username is Required
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+
+<div class="row">
+            <div class="col-sm-3">
+                <label for="firstname">First Name:</label>
+            </div>
+    <div class="col-sm-5">
+        <div class="form-group" >
+           <input type="text" [ngClass]="{'is-invalid': registerForm.get('firstName').touched && registerForm.get('firstName').invalid}" formControlName="firstName" class="form-control" id="email"     placeholder="Enter first name" name="firstname">
+        <div class="invalid-feedback">
+            First Name is Required
+        </div>
+    </div>
+  </div>        
+</div>
+
+    <div class="form-group">
+
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="firstname">Last Name:</label>
+            </div>
+            <div class="col-sm-5">
+                <input type="text" [ngClass]="{'is-invalid': registerForm.get('lastName').touched && registerForm.get('lastName').invalid}"  formControlName="lastName" class="form-control" id="email" placeholder="Enter last name" name="lastname">
+                <div class="invalid-feedback">
+                    Last Name is Required
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+    <div class="form-group">
+
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="firstname">Password:</label>
+            </div>
+            <div class="col-sm-5">
+                <input type="password" [ngClass]="{'is-invalid': registerForm.get('password').touched && registerForm.get('password').invalid}" formControlName="password" class="form-control" id="password" placeholder="Enter last password" name="password">
+                <div *ngIf="registerForm.get('password').touched && registerForm.get('password').invalid" class="invalid-feedback">
+                    <div *ngIf="registerForm.get('password').errors.required">Password Required</div>
+                    <div *ngIf="registerForm.get('password').errors.minlength">Password Must be at least 6 characters</div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+    <div class="form-group">
+
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="firstname">email:</label>
+            </div>
+            <div class="col-sm-5">
+                <input type="email"  [ngClass]="{'is-invalid': registerForm.get('email').touched && registerForm.get('email').invalid}" formControlName="email" class="form-control" id="email" placeholder="Enter Email" name="email">
+                <div *ngIf="registerForm.get('email').touched && registerForm.get('email').invalid" class="invalid-feedback">
+                    <div *ngIf="registerForm.get('email').errors.required">Email is Required</div>
+                    <div *ngIf="registerForm.get('email').errors.email"> Email must be a valid email Address</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+   
+  <div formGroupName="address">
+
+
+    <div class="form-group">
+
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="street">Address Line One:</label>
+            </div>
+            <div class="col-sm-5">
+                <input type="text" [ngClass]="{'is-invalid': registerForm.get(['address','addressLineOne']).touched && registerForm.get(['address','addressLineOne']).invalid}"  formControlName="addressLineOne" class="form-control" id="addressLineOne" placeholder="Enter Address Line One" name="addressLineOne">
+                <div class="invalid-feedback">
+                    Address Line One is Required
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+    <div class="form-group">
+
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="addressLineTwo">Address Line Two:</label>
+            </div>
+            <div class="col-sm-5">
+                <input type="text" [ngClass]="{'is-invalid': registerForm.get(['address','addressLineTwo']).touched && registerForm.get(['address','addressLineTwo']).invalid}"  formControlName="addressLineTwo" class="form-control" id="addressLineTwo" placeholder="Enter Address Line Two" name="addressLineTwo">
+                <div class="invalid-feedback">
+                    Address Line Two is Required
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    
+    <div class="form-group">
+    
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="city">city:</label>
+            </div>
+            <div class="col-sm-5">
+                <input type="text" [ngClass]="{'is-invalid': registerForm.get(['address','city']).touched && registerForm.get(['address','city']).invalid}" formControlName="city" class="form-control" id="city" placeholder="Enter City" name="city">
+                <div class="invalid-feedback">
+                    City is Required
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    
+        
+    <div class="form-group">
+    
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="state">state:</label>
+            </div>
+            <div class="col-sm-5">
+                <input type="text" [ngClass]="{'is-invalid': registerForm.get(['address','state']).touched && registerForm.get(['address','state']).invalid}" formControlName="state" class="form-control" id="state" placeholder="Enter State" name="state">
+                <div class="invalid-feedback">
+                    State is Required
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+
+    <div class="form-group">
+    
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="state">zip:</label>
+            </div>
+            <div class="col-sm-5">
+                <input type="text" [ngClass]="{'is-invalid': registerForm.get(['address','zip']).touched && registerForm.get(['address','zip']).invalid}" formControlName="zip" class="form-control" id="zip" placeholder="Enter Zip" name="zip">
+                <div class="invalid-feedback">
+                    zip is Required
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+
+
+  </div>  
+
+<div class="form-group">
+
+    <div class="row">
+
+        <div class="col-sm-3">
+            <a routerLink="/login" routerLinkActive="active">Login</a>
+        </div>
+    
+        <div class="col-sm-7">
+            <button type="submit" [disabled]="!registerForm.valid" class="btn btn-success">Register</button>
+        </div>
+        
+    </div>
+</div>
+
+<div>
+    {{registerForm.value | json}}
+</div>
+
+  </form>
+</div>
+
